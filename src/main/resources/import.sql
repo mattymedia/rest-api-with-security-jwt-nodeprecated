@@ -1,0 +1,3 @@
+INSERT INTO students (id_card, name, surname, degree, email, create_at) VALUES (1234569, 'John', 'Doe', 'Computer Science', 'john.doe@example.com', '2021-08-11');
+INSERT INTO students (id_card, name, surname, degree, email, create_at) VALUES (9876541, 'Jane', 'Smith', 'Mathematics', 'jane.smith@example.com', '2021-09-26');
+INSERT INTO students (id_card, name, surname, degree, email, create_at) VALUES (2745214, 'Bob', 'Johnson', 'Biology', 'bob.johnson@example.com', '2022-02-16');
