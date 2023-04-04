@@ -23,13 +23,9 @@ public class StudentController {
 
 	@Autowired
 	private IStudentService studentService;
-	
-	@Value("${jwt.secret}")
-	private String secret;
-	
+		
 	@GetMapping("/list")
 	public List<Student> findAll() {
-		System.out.println("value: ".concat(secret));
 		return studentService.findAll();
 	}
 	 
