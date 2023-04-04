@@ -19,12 +19,8 @@ public class Student implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(name = "id_card")
-	private Long idCard;
-
-	private String name;
-
-	private String surname;
+	@Column(name = "full_name")
+	private String fullName;
 
 	private String degree;
 
@@ -32,10 +28,14 @@ public class Student implements Serializable {
 
 	@Column(name = "create_at")
 	private LocalDate createAt;
+	
+	public Student() {}
 
-	@PrePersist
-	public void currentDate() {
-		createAt = LocalDate.now();
+	public Student(String fullName, String degree, String email, LocalDate createAt) {
+		this.fullName = fullName;
+		this.degree = degree;
+		this.email = email;
+		this.createAt = createAt;
 	}
 
 	public Integer getId() {
@@ -46,28 +46,12 @@ public class Student implements Serializable {
 		this.id = id;
 	}
 
-	public Long getIdCard() {
-		return idCard;
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setIdCard(Long idCard) {
-		this.idCard = idCard;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getSurname() {
-		return surname;
-	}
-
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
 	public String getDegree() {
@@ -92,6 +76,11 @@ public class Student implements Serializable {
 
 	public void setCreateAt(LocalDate createAt) {
 		this.createAt = createAt;
+	}
+
+	@PrePersist
+	public void currentDate() {
+		createAt = LocalDate.now();
 	}
 
 	private static final long serialVersionUID = 1L;

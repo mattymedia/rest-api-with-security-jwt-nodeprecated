@@ -3,7 +3,6 @@ package co.com.studentregistration.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -36,6 +35,6 @@ public class StudentController {
 			return new ResponseEntity<Message>(new Message("The student data is incorrect"), HttpStatus.BAD_REQUEST);
 		}
 		studentService.save(student);
-		return new ResponseEntity<Message>(new Message("The student, "+ student.getSurname() + " " + student.getName() + " has been saved"), HttpStatus.OK);
+		return new ResponseEntity<Message>(new Message("The student, "+ student.getFullName() + " has been saved"), HttpStatus.OK);
 	}
 }
