@@ -21,8 +21,8 @@ import co.com.studentregistration.security.dto.JwtDto;
 import co.com.studentregistration.security.dto.LoginUser;
 import co.com.studentregistration.security.dto.NewUser;
 import co.com.studentregistration.security.entity.Role;
-import co.com.studentregistration.security.entity.RoleEnum;
 import co.com.studentregistration.security.entity.User;
+import co.com.studentregistration.security.enums.RoleEnum;
 import co.com.studentregistration.security.jwt.JwtProvider;
 import co.com.studentregistration.security.service.RoleService;
 import co.com.studentregistration.security.service.UserService;
@@ -69,6 +69,8 @@ public class AuthController {
         roles.add(roleService.getByRoleName(RoleEnum.ROLE_USER).get());
         if (newUser.getRoles().contains("admin"))
             roles.add(roleService.getByRoleName(RoleEnum.ROLE_ADMIN).get());
+        if (newUser.getRoles().contains("support"))
+            roles.add(roleService.getByRoleName(RoleEnum.ROLE_SUPPORT).get());
         user.setRoles(roles);
         userService.save(user);
         return new ResponseEntity<>(new Message("Registro exitoso! Inicie sesión"), HttpStatus.CREATED);

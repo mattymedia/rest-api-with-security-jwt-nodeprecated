@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import co.com.studentregistration.security.enums.RoleEnum;
+
 @Entity
 @Table(name = "roles")
 public class Role implements Serializable {

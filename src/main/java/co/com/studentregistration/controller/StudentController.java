@@ -29,6 +29,13 @@ public class StudentController {
 	public List<Student> findAll() {
 		return studentService.findAll();
 	}
+	
+	@PreAuthorize("hasRole('SUPPORT')")
+	@GetMapping("/support")
+	public ResponseEntity<Message> support(){
+		return new ResponseEntity<Message>(new Message("the support profile working correctly."), HttpStatus.OK);
+
+	}
 	 
 	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/create")

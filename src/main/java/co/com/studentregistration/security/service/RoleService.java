@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.com.studentregistration.security.entity.Role;
-import co.com.studentregistration.security.entity.RoleEnum;
+import co.com.studentregistration.security.enums.RoleEnum;
 import co.com.studentregistration.security.repository.IRoleRepository;
 
 @Service
